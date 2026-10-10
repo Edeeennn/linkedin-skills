@@ -9,9 +9,9 @@ you for "a specific number or moment" on every single request and starts drawing
 from what you already told it once.
 
 > **Keep this out of git.** It holds career detail, figures, failures and named
-> people. It is a file in this repository, so a push carries it wherever you push,
-> a public fork included. Add `references/story-bank.md` to your `.gitignore`
-> before you fill it, or keep the filled copy outside the repo. Nothing here is
+> people. The skills ask you once where to keep it and record the answer in
+> `.linkedin-skills.json` in your project root. Keep that path outside any repo
+> you push, or gitignore it there, so a push carries it nowhere. Nothing here is
 > sent to us or to any service; git is the only way it travels.
 
 Fill it by running `linkedin-interviewer`, which interviews you and writes this

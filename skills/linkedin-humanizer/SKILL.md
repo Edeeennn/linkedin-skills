@@ -66,8 +66,9 @@ linkedin-humanizer --mode audit <text>
 
 # Profile: build/update the user's Voice & Brand Profile so every writing
 # skill drafts in their real voice. Learns from 3-6 pasted posts (portable, no
-# token) or, if APIFY_TOKEN is set, from pulled activity. Writes
-# ../../references/voice-profile.md. See sub-skills/voice-profile.md.
+# token) or, if APIFY_TOKEN is set, from pulled activity. Writes the user's
+# copy, kept where they chose (root SKILL.md §The two profile docs). See
+# sub-skills/voice-profile.md.
 linkedin-humanizer --mode profile
 ```
 
@@ -164,7 +165,7 @@ See `references/examples.md` for worked examples.
 - `sub-skills/rules-explainer.md` — when to defend a flagged rule (em dash, rule of three, passive voice)
 - `sub-skills/emoji-detector.md` — scan / score / suggest workflow for emoji density
 - `sub-skills/detector-tester.md` — run text through 5 AI detectors in parallel and report disagreement
-- `sub-skills/voice-profile.md` — build/update the user's Voice & Brand Profile (`--mode profile`); the filled `../../references/voice-profile.md` is then read by every writing skill so drafts match the user's real voice
+- `sub-skills/voice-profile.md` — build/update the user's Voice & Brand Profile (`--mode profile`); the filled Voice Profile is kept where the user chose (root `SKILL.md` §The two profile docs) and read by every writing skill so drafts match the user's real voice
 - `scripts/test_detectors.py` — runs the parallel detector test (supports `--demo` for offline mode)
 - Detector-script deps (`requests`, `python-dotenv`) come from the bundle's root `requirements.txt` / `requirements-lock.txt`, not a manifest of their own
 - `scripts/test_detectors.py` is the only code in this bundle that sends your text to third parties: it uploads the draft to each hosted detector you hold a key for. See the disclosure at the top of `sub-skills/detector-tester.md` before running it.

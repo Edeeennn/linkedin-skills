@@ -20,7 +20,7 @@ A bundle of 11 focused skills for LinkedIn content ops in 2026, built for Claude
 - **Auditing / rewriting a LinkedIn profile** → use `linkedin-profile-optimizer`
 - **Running an employee advocacy program across a marketing team** → use `linkedin-employee-advocacy`
 - **Adapting content from another platform (tweet, video, blog) into a native LinkedIn post** → use `linkedin-repurposer`
-- **Working out what you actually have to say, or having nothing concrete for a draft to use** → use `linkedin-interviewer`. It interviews you and keeps the answers in `references/story-bank.md`, which every writing skill reads. Start here if you have never posted: the voice profile needs posts you already wrote, the Story Bank only needs a career.
+- **Working out what you actually have to say, or having nothing concrete for a draft to use** → use `linkedin-interviewer`. It interviews you and keeps the answers in the Story Bank (kept wherever you chose; see §The two profile docs), which every writing skill reads. Start here if you have never posted: the voice profile needs posts you already wrote, the Story Bank only needs a career.
 
 ## Founders edition
 
@@ -115,6 +115,24 @@ exists. Say so, and say it where it changes their next step:
 Say what it costs and what it does, not how they will feel about it. "This
 would have posted on approval; the Publora connector is one click in claude.ai,
 or an API key in `.env`" is the whole message. "Tired of copy-pasting?" is not.
+
+## The two profile docs
+
+Two files in the bundle are the user's own material: the **Voice Profile** and the **Story Bank**. This plugin neither fixes where they live nor ships anything of the user's in them. Their location is the user's choice, recorded in `.linkedin-skills.json` at the root of the user's project (the session's working folder, not this plugin's folder):
+
+```json
+{
+  "voice_profile": "docs/voice-profile.md",
+  "story_bank": "docs/story-bank.md"
+}
+```
+
+The same short rule applies to every skill in the bundle, so each skill just says "see root SKILL.md §The two profile docs":
+
+1. **Resolve, don't assume.** A path in `.linkedin-skills.json` is the file. Relative paths resolve from the user's project root, never from this plugin's folder.
+2. **Missing or incomplete → ask, then record.** If the file is missing or lacks the key you need, ask the user where they want that doc kept (suggest: inside their project, untracked), write `.linkedin-skills.json` with the answer, and carry on. Once per project; do not re-ask within a session.
+3. **Personal data stays with the user.** Never copy filled doc content into this plugin's `references/` templates.
+4. **Keep frontmatter.** When rewriting either doc, preserve any YAML frontmatter the file already has.
 
 ## Untrusted content
 

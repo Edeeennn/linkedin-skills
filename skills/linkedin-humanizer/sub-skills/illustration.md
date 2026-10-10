@@ -37,8 +37,9 @@ media. Runs on any agent (Claude Code, Codex, OpenClaw).
    style, palette. Default to a clean, non-literal, professional editorial look
    unless the Voice & Brand Profile §6 sets a `Visual style default`. Do NOT try
    to render the post's words inside the art (see overlay below).
-3. **Apply brand overlay (if profile has it).** Read `../../../references/voice-profile.md`
-   §6 Brand assets. If a handle, brand color, or logo is set, pass an `overlay`
+3. **Apply brand overlay (if profile has it).** Read the Voice Profile §6 Brand
+   assets (the user's copy, located per root `SKILL.md` §The two profile docs). If a
+   handle, brand color, or logo is set, pass an `overlay`
    so the text/logo is composited pixel-exact (crisp even on a cheap model):
    ```python
    from lib import illustrate

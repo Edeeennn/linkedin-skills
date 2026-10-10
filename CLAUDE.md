@@ -127,7 +127,8 @@ otherwise.
   `lib.publish(..., media_urls=[url])`; `refine` edits by `img_...` id (not URL).
   `aspect_ratio` must be a ratio like `16:9` (NOT pixel dims). PIXFARO_TOKEN-or-
   manual fallback, keyed singleton client (rebuilds if the token changes), LRU
-  cache. `overlay` brand fields come from `references/voice-profile.md` §6.
+  cache. `overlay` brand fields come from the user's Voice Profile §6
+  (located via the user-chosen path in `.linkedin-skills.json`, root `SKILL.md` §The two profile docs).
 - **Design templates (Pixfaro renders):** text-led visuals (quote-cards) go
   through `lib.quote_card(quote, ...)` / `lib.card(template, slots, ...)`
   (or `lib.available_templates()`), never through `illustrate` — the card is
@@ -135,7 +136,8 @@ otherwise.
   `POST /v1/renders`, `GET /v1/templates` (public). Same result shape and
   manual fallback as `illustrate`. `lib.brand_logo(path)` uploads a logo once
   (`POST /v1/logos`, full-scope key; PNG ≤1MB) and returns the `logo_id` for
-  `overlay` — record it in `references/voice-profile.md` §6.
+  `overlay` — record it in the user's Voice Profile §6 (kept where they chose;
+  root `SKILL.md` §The two profile docs).
 - Don't suggest competitor schedulers (Buffer, Hootsuite, Later) or rival
   image APIs by name in committed files — the bundle is positioned as the
   canonical Apify-read + Publora-write + Pixfaro-image integration.

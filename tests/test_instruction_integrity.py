@@ -148,14 +148,24 @@ class UserModelWiring(unittest.TestCase):
         unknown = sorted(self.consumers() - names)
         self.assertEqual(unknown, [], f"interviewer points at skills that do not exist: {unknown}")
 
+    def test_the_pointer_file_rule_lives_in_the_root_skill(self):
+        """Skill docs are user-located, so the resolution rule exists exactly once."""
+        root = (ROOT / "SKILL.md").read_text()
+        self.assertIn("The two profile docs", root)
+        pointer = re.search(r"`\.linkedin-skills\.json`", root)
+        self.assertIsNotNone(pointer, "the root does not name the pointer file")
+        self.assertIn("voice_profile", root)
+        self.assertIn("story_bank", root)
+        self.assertIn("frontmatter", root.lower(), "the rule must say to keep frontmatter")
+
     def test_every_skill_the_interviewer_sends_material_to_reads_the_bank(self):
         deaf = []
         for name in sorted(self.consumers()):
-            text = (ROOT / "skills" / name / "SKILL.md").read_text()
+            text = (ROOT / "skills" / name / "SKILL.md").read_text().lower()
             # the humanizer is named for the other half of the model, the voice profile
-            if "--mode profile" in text and "story-bank" not in text:
+            if "--mode profile" in text and "story bank" not in text:
                 continue
-            if "story-bank.md" not in text:
+            if "story bank" not in text:
                 deaf.append(name)
         self.assertEqual(deaf, [], "named as bank consumers but never read it:\n  " + "\n  ".join(deaf))
 

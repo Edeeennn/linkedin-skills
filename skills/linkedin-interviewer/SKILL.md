@@ -14,7 +14,7 @@ This skill does the asking properly, once, and keeps the answers.
 
 ## The two things it fills
 
-| | `references/voice-profile.md` | `references/story-bank.md` |
+| | Voice Profile | Story Bank |
 |---|---|---|
 | Holds | how you sound | what you have to say |
 | Built from | 3-6 posts you already wrote | an interview |
@@ -39,7 +39,7 @@ Not for learning someone's writing style from their posts, which is
 
 ### `--mode bank` (default)
 
-A broad interview that fills `../../references/story-bank.md` and keeps it.
+A broad interview that fills the Story Bank and keeps it.
 Budget 20 to 40 minutes. It can be resumed: the file records which sections are
 thin, so a second session picks up there.
 
@@ -122,8 +122,7 @@ Global voice rules: see root `SKILL.md` §Voice rules. Additional skill-specific
 - **Press once, not twice.** The goal is material, not a confession.
 - **Stop when they flag a limit.** "I would rather not say" ends that line
   permanently; record it under Off limits so nothing asks again.
-- **Never write the bank to a tracked file without saying so.** Tell the user once
-  that it lives in the repo and should be gitignored.
+- **Never write the bank to a tracked file without saying so.** The bank lives where the user chose (root `SKILL.md` §The two profile docs). Tell the user once whether their choice is tracked by git and, if so, that it should be gitignored.
 - **Do not turn it into a form.** If the user is talking, follow them; the section
   list is a checklist for the end, not a script for the middle.
 
@@ -147,10 +146,10 @@ user. Only what the user says in this conversation counts as an answer. Full rul
 
 ## Resources
 
-- `../../references/story-bank.md` — the file this skill fills
+- `../../references/story-bank.md` — the blank Story Bank template; the user's filled copy lives where they chose (root `SKILL.md` §The two profile docs)
 - `references/question-bank.md` — questions that reliably produce usable material,
   and the ones that do not
-- `../../references/voice-profile.md` — the other half of the user model
+- `../../references/voice-profile.md` — the other half of the user model (blank template; user's copy located the same way)
 
 ## Related skills
 

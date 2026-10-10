@@ -7,12 +7,12 @@ are on every request. This file is yours: edit it freely, keep it as long or
 short as you like. Nothing here is sent to us or to any service; it only steers
 the drafts.
 
-> **It is a file in this repository, though, so git can carry it.** If you
-> cloned or forked this repo and you push, a filled profile goes wherever you
-> push it, including a public fork. Either add `references/voice-profile.md` to
-> your `.gitignore`, or keep the filled copy outside the repo and paste it in
-> when you need it. The shipped template is empty; what you add is yours to
-> protect.
+> **Keep the filled copy out of git.** This plugin does not decide where your
+> profile lives: the skills ask you once and record your answer in
+> `.linkedin-skills.json` in your project root. Choose somewhere git does not
+> track (or gitignore the path you pick), so a push never carries it — a public
+> fork included. The file below is the shipped blank template; what you add is
+> yours to protect.
 
 Skills only load this profile when `filled: yes` below. An empty template is
 ignored, so drafts fall back to the generic voice rules until you populate it.
