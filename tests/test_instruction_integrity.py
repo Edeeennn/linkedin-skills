@@ -156,6 +156,8 @@ class UserModelWiring(unittest.TestCase):
         self.assertIsNotNone(pointer, "the root does not name the pointer file")
         self.assertIn("voice_profile", root)
         self.assertIn("story_bank", root)
+        self.assertIn("`path`", root, "the rule must name the path field")
+        self.assertIn("tracked_in_git", root, "the rule must record the git-tracking decision")
         self.assertIn("frontmatter", root.lower(), "the rule must say to keep frontmatter")
 
     def test_every_skill_the_interviewer_sends_material_to_reads_the_bank(self):

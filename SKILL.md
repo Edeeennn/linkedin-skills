@@ -118,19 +118,24 @@ or an API key in `.env`" is the whole message. "Tired of copy-pasting?" is not.
 
 ## The two profile docs
 
-Two files in the bundle are the user's own material: the **Voice Profile** and the **Story Bank**. This plugin neither fixes where they live nor ships anything of the user's in them. Their location is the user's choice, recorded in `.linkedin-skills.json` at the root of the user's project (the session's working folder, not this plugin's folder):
+Two files in this plugin are the user's own material: the **Voice Profile** and the **Story Bank**. This plugin neither fixes where they live nor ships anything of the user's in them. Where each doc lives, and whether git tracks it, is the user's choice — made after being told the risk (below) — recorded in `.linkedin-skills.json` at the root of the user's project (the session's working folder, not this plugin's folder). One object per doc:
 
 ```json
 {
-  "voice_profile": "docs/voice-profile.md",
-  "story_bank": "docs/story-bank.md"
+  "voice_profile": { "path": "docs/voice-profile.md", "tracked_in_git": true },
+  "story_bank":    { "path": "/abs/path/story-bank.md", "tracked_in_git": false }
 }
 ```
 
-The same short rule applies to every skill in the bundle, so each skill just says "see root SKILL.md §The two profile docs":
+`path` is relative to the user's project root when the doc sits inside the project, absolute when it sits outside it. `tracked_in_git` is the user's own call: `true` means they knowingly let git track the doc, `false` means keep it out of git.
 
-1. **Resolve, don't assume.** A path in `.linkedin-skills.json` is the file. Relative paths resolve from the user's project root, never from this plugin's folder.
-2. **Missing or incomplete → ask, then record.** If the file is missing or lacks the key you need, ask the user where they want that doc kept (suggest: inside their project, untracked), write `.linkedin-skills.json` with the answer, and carry on. Once per project; do not re-ask within a session.
+The same short rule applies to every skill in this plugin, so each skill just says "see root SKILL.md §The two profile docs":
+
+1. **Resolve, don't assume.** A `path` in `.linkedin-skills.json` is the file. Relative paths resolve from the user's project root, never from this plugin's folder.
+2. **Missing or incomplete → ask about that doc only, then record.** If the pointer file is missing, or lacks a doc's `path` or `tracked_in_git`, ask about that doc (write the answer for it alone). Ask per doc; if both docs go to the same folder, ask once and record it for each. Once per project; re-ask only if the user changes that doc's path — and then ask both questions (location and git) again. Suggest neutrally, e.g. "anywhere you like; many keep them in their project". While asking about the location:
+   - **Check the chosen folder and say what you found.** Not a git repo → git will not track the doc. A repo with no remote → tracking stays on this machine unless a remote is added later. A repo with a remote → name the host and URL (`git remote -v`), and the visibility if you can verify it (`gh repo view --json visibility`, or an unauthenticated fetch of the repo page). If you cannot verify, say so: "anyone with access to that repo will see the file, including its history." Never claim exactly who can see it.
+   - **Then ask whether git should track it.** Say that the doc holds personal details (story bank: figures, names, career events; voice profile: tone, niche, writing rules). Do not recommend either way; it is the user's call. Show this only while asking about the location, never on every session.
+   - **If the user says `false` and the folder is in a repo** → offer to add the file to that repo's `.gitignore`, or to move it elsewhere on the machine.
 3. **Personal data stays with the user.** Never copy filled doc content into this plugin's `references/` templates.
 4. **Keep frontmatter.** When rewriting either doc, preserve any YAML frontmatter the file already has.
 

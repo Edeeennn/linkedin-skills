@@ -122,7 +122,7 @@ Global voice rules: see root `SKILL.md` §Voice rules. Additional skill-specific
 - **Press once, not twice.** The goal is material, not a confession.
 - **Stop when they flag a limit.** "I would rather not say" ends that line
   permanently; record it under Off limits so nothing asks again.
-- **Never write the bank to a tracked file without saying so.** The bank lives where the user chose (root `SKILL.md` §The two profile docs). Tell the user once whether their choice is tracked by git and, if so, that it should be gitignored.
+- **Never write the bank to a tracked file without saying so.** Where the bank lives and whether git tracks it is the user's recorded decision (root `SKILL.md` §The two profile docs); the warning is shown once at ask time, not every session.
 - **Do not turn it into a form.** If the user is talking, follow them; the section
   list is a checklist for the end, not a script for the middle.
 

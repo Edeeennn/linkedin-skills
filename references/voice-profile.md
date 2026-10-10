@@ -7,12 +7,12 @@ are on every request. This file is yours: edit it freely, keep it as long or
 short as you like. Nothing here is sent to us or to any service; it only steers
 the drafts.
 
-> **Keep the filled copy out of git.** This plugin does not decide where your
-> profile lives: the skills ask you once and record your answer in
-> `.linkedin-skills.json` in your project root. Choose somewhere git does not
-> track (or gitignore the path you pick), so a push never carries it — a public
-> fork included. The file below is the shipped blank template; what you add is
-> yours to protect.
+> This file holds personal details: your tone, niche and writing rules. Where it
+> lives and whether git tracks it is your choice, recorded in
+> `.linkedin-skills.json` in your project root — the skills ask once and inform
+> you of the risk first. A git repo that is pushed or shared carries this file
+> and its history to everyone with access. The file below is the shipped blank
+> template; what you add is yours to protect.
 
 Skills only load this profile when `filled: yes` below. An empty template is
 ignored, so drafts fall back to the generic voice rules until you populate it.

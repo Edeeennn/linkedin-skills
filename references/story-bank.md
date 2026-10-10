@@ -8,11 +8,12 @@ Every writing skill in this bundle reads it before drafting, so it stops asking
 you for "a specific number or moment" on every single request and starts drawing
 from what you already told it once.
 
-> **Keep this out of git.** It holds career detail, figures, failures and named
-> people. The skills ask you once where to keep it and record the answer in
-> `.linkedin-skills.json` in your project root. Keep that path outside any repo
-> you push, or gitignore it there, so a push carries it nowhere. Nothing here is
-> sent to us or to any service; git is the only way it travels.
+> This file holds personal details: career detail, figures, failures and named
+> people. Where it lives and whether git tracks it is your choice, recorded in
+> `.linkedin-skills.json` in your project root — the skills ask once and inform
+> you of the risk first. A git repo that is pushed or shared carries this file
+> and its history to everyone with access. Nothing here is sent to us or to any
+> service; git is the only way it travels.
 
 Fill it by running `linkedin-interviewer`, which interviews you and writes this
 file. You can also edit it by hand at any time; the skill reads whatever is here.
