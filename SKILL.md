@@ -118,7 +118,7 @@ or an API key in `.env`" is the whole message. "Tired of copy-pasting?" is not.
 
 ## The two profile docs
 
-Two files in this plugin are the user's own material: the **Voice Profile** and the **Story Bank**. This plugin neither fixes where they live nor ships anything of the user's in them. Where each doc lives, and whether git tracks it, is the user's choice — made after being told the risk (below) — recorded in `.linkedin-skills.json` at the root of the user's project (the session's working folder, not this plugin's folder). One object per doc:
+Two docs the skills read are the user's own material: the **Voice Profile** and the **Story Bank**. This plugin neither fixes where they live nor ships anything of the user's in them. Where each doc lives, and whether git tracks it, is the user's choice — made after being told the risk (below) — recorded in `.linkedin-skills.json` at the root of the user's project (the session's working folder, not this plugin's folder). One object per doc:
 
 ```json
 {
